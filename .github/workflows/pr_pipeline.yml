@@ -11,7 +11,13 @@ jobs:
     if: ${{ github.repository != 'Azure/GenAIOps-project-template' }}    
     runs-on: ubuntu-latest
     environment: dev
-    steps:       
+    steps:
+      - name: Set environment variables for testing
+        run: | 
+         echo "AZURE_SUBSCRIPTION_ID=fake-subscription-id" >> $GITHUB_ENV
+         echo "AZURE_RESOURCE_GROUP=fake-rg-id" >> $GITHUB_ENV
+      - name: Debug Environment Variables
+        run: printenv 
       - uses: actions/checkout@v4
       - name: Setup Python 
         uses: actions/setup-python@v5
