@@ -15,6 +15,7 @@ jobs:
       - name: Set environment variables for testing
         run: | 
          echo "AZURE_SUBSCRIPTION_ID=fake-subscription-id" >> $GITHUB_ENV
+         echo "AZURE_RESOURCE_GROUP=fake-rg-id" >> $GITHUB_ENV
       - name: Debug Environment Variables
         run: printenv 
       - uses: actions/checkout@v4
